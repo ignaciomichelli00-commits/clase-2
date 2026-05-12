@@ -14,7 +14,6 @@
             align-items: flex-start;
         }
         
-        /* Columna de Productos */
         .seccion-tabla {
             flex: 2;
             background: white;
@@ -56,7 +55,6 @@
             background: none;
         }
 
-        /* Columna del Total */
         .seccion-total {
             flex: 1;
             background: #fff;
@@ -134,7 +132,7 @@
             let sumaTotal = 0;
 
             carrito.forEach((prod, index) => {
-                // Lógica para sumar: quitamos el "$" y los "." para que sea un número
+        
                 let precioLimpio = prod.precio.replace("$", "").replace(/\./g, "");
                 sumaTotal += parseInt(precioLimpio);
 
@@ -148,7 +146,6 @@
                 `;
             });
 
-            // Formatear el total de vuelta a moneda
             totalDisplay.innerText = "$" + sumaTotal.toLocaleString('es-AR');
         }
 
