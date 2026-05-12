@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Producto - Musicly</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: #fdf5e6;">
+    <header class="main-header" style="background-color: #fdf5e6; color: #4b3621; padding: 20px; border-bottom: 1px solid #eaddca;">
+        <nav class="nav-container">
+            <div class="logo">🎸 MUSICLY STORE</div>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: #4b3621; text-decoration: none;">Home</a></li>
+                <li><a href="carrito.html" style="color: #4b3621; text-decoration: none;">Productos (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="max-width: 1000px; margin: 50px auto; display: flex; background: white; padding: 40px; border-radius: 15px; gap: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+        <div style="flex: 1;"><img id="img-det" src="" style="width: 100%; height: 400px; object-fit: contain;"></div>
+        <div style="flex: 1;">
+            <h1 id="nombre-det" style="color: #333;"></h1>
+            <p id="precio-det" style="color: #ff6b6b; font-size: 2rem; font-weight: bold; margin: 20px 0;"></p>
+            <p id="desc-det" style="color: #666; margin-bottom: 30px;"></p>
+            <button onclick="agregarAlCarrito()" style="background: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-size: 1.1rem; font-weight: bold;">Añadir al carrito</button>
+        </div>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('nombre-det').innerText = params.get('nombre');
+        document.getElementById('precio-det').innerText = params.get('precio');
+        document.getElementById('desc-det').innerText = params.get('desc');
+        document.getElementById('img-det').src = params.get('img');
+
+        function actualizarContador() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            document.getElementById('cart-count').innerText = carrito.length;
+        }
+
+        function agregarAlCarrito() {
+            const producto = {
+                nombre: params.get('nombre'),
+                precio: params.get('precio'),
+                img: params.get('img')
+            };
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.push(producto);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarContador();
+            alert("¡Añadido al carrito!");
+        }
+        actualizarContador();
+    </script>
+</body>
+</html>

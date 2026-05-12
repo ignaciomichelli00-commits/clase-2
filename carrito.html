@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Carrito - Musicly</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .carrito-wrapper {
+            display: flex;
+            max-width: 1000px;
+            margin: 40px auto;
+            gap: 30px;
+            padding: 0 20px;
+            align-items: flex-start;
+        }
+        
+        /* Columna de Productos */
+        .seccion-tabla {
+            flex: 2;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .carrito-tabla {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .carrito-tabla th {
+            text-align: left;
+            border-bottom: 2px solid #fdf5e6;
+            padding: 10px;
+            color: #8b4513;
+        }
+
+        .carrito-tabla td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+
+        .img-carrito {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .btn-quitar {
+            color: #ff6b6b;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border: none;
+            background: none;
+        }
+
+        /* Columna del Total */
+        .seccion-total {
+            flex: 1;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid #eaddca;
+        }
+
+        .total-monto {
+            font-size: 2rem;
+            color: #8b4513;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .btn-pagar {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="background-color: #fdf5e6;">
+    <header class="main-header" style="background-color: #fdf5e6; color: #4b3621; padding: 20px; border-bottom: 1px solid #eaddca;">
+        <nav class="nav-container">
+            <div class="logo">🎸 MUSICLY STORE</div>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: #4b3621; text-decoration: none; font-weight: bold;">Volver a la Tienda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; margin-top: 30px; color: #8b4513;">Carrito</h1>
+
+        <div class="carrito-wrapper">
+            <div class="seccion-tabla">
+                <table class="carrito-tabla">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-carrito">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="seccion-total">
+                <h2 style="color: #4b3621;">Resumen</h2>
+                <p style="margin-top: 10px;">Total a pagar:</p>
+                <div class="total-monto" id="precio-total">$0</div>
+                <button class="btn-pagar">Finalizar Compra</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function cargarCarrito() {
+            const lista = document.getElementById('lista-carrito');
+            const totalDisplay = document.getElementById('precio-total');
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            lista.innerHTML = "";
+            let sumaTotal = 0;
+
+            carrito.forEach((prod, index) => {
+                // Lógica para sumar: quitamos el "$" y los "." para que sea un número
+                let precioLimpio = prod.precio.replace("$", "").replace(/\./g, "");
+                sumaTotal += parseInt(precioLimpio);
+
+                lista.innerHTML += `
+                    <tr>
+                        <td><img src="${prod.img}" class="img-carrito"></td>
+                        <td>${prod.nombre}</td>
+                        <td style="font-weight: bold; color: #ff6b6b;">${prod.precio}</td>
+                        <td><button class="btn-quitar" onclick="eliminarDelCarrito(${index})">X</button></td>
+                    </tr>
+                `;
+            });
+
+            // Formatear el total de vuelta a moneda
+            totalDisplay.innerText = "$" + sumaTotal.toLocaleString('es-AR');
+        }
+
+        function eliminarDelCarrito(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            cargarCarrito();
+        }
+
+        cargarCarrito();
+    </script>
+</body>
+</html>

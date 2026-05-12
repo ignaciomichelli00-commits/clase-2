@@ -1,52 +1,161 @@
-<html>
-    <head>
-        <title> Mi página </title>
-        <style>
-            table, th, td {
-                border : 1px solid black;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Esto es h1</h1>
-        <h2>Esto es h2</h2>
-        <h3>Esto es h3</h3>
-        <h4>Esto es h4</h4>
-        <h5>Esto es h5</h5>
-        <h6>Esto es h6</h6>
-        <p>Primer parrafo</p>
-        <p>Segundo parrafo<br>
-        Segunda linea del segundo parrafo</p>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9ZFmn9no38NNaTpe0CSWNkNBY_aTilsF_Q&s">
-        <a href="https:youtube.com/"> Entra a Youtube</a> 
-        <ul>
-            <li>Elemento 1</li>
-            <ul>
-                <li>Sub elemento 1</li>
-                <li>Sub elemento 2</li>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musicly - Tienda de Guitarras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"> MUSICLY</div>
+            <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="carrito.html">Productos (<span id="cart-count">0</span>)</a></li>
+</ul>
             </ul>
-            <li>Elemento 2</li>
-            <li>Elemento 3</li>
-            <li>Elemento 4</li>
-        </ul>
-        <p style="color:red; font-size:100px"> Hola mundo</p>
-        <table>
-            <tr>
-                <th>Nombre y Apellido</th>
-                <th>Fecha cumple</th>
-                <th>Comida favorita</th>
-            </tr>
-            <tr>
-                <td>Ignacio Michelli</ld>
-                <td>28/8/2010</ld>
-                <td>Hamburguesa</ld>
-            </tr>
-            <tr>
-                <td>Soto Domingo</ld>
-                <td>28/8/2015</ld>
-                <td>Pizza</ld>
-            </tr>
-        </table>
-        <h1></h1>
-    </body>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Las mejores guitarras</h1>
+            <p>Encuentra la guitarra perfecta para ti</p>
+            <button class="cta-button">Ver guitarras</button>
+        </section>
+
+        <!-- SECCIÓN FENDER -->
+        <section class="seccion-marca">
+            <h2 class="titulo-marca">Fender</h2>
+            <div class="guitarra-grid">
+                <div class="guitarra-card">
+                    <img src="https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=850/https://www.fmicassets.com/Damroot/eCommPNG/10105/0178222883_fen_ins_frt_1_rr.png" alt="Fender Strat">
+                    <h3>Fender Stratocaster</h3>
+                    <p class="precio">$1.200.000</p>
+                    <p class="descripcion">Clásico diseño estilo Stratocaster.</p>
+                    <a href="producto.html?nombre=Fender Stratocaster&precio=$1.200.000&desc=Clásico diseño estilo Stratocaster con maderas de alta calidad.&img=https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=850/https://www.fmicassets.com/Damroot/eCommPNG/10105/0178222883_fen_ins_frt_1_rr.png" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+                <div class="guitarra-card">
+                    <img src="https://musicopolix.com/274654/fender-american-vintage-ii-1963-telecaster-rw-surf-green-guitarra-electrica.jpg" alt="Fender Tele">
+                    <h3>Fender Telecaster</h3>
+                    <p class="precio">$1.250.000</p>
+                    <p class="descripcion">Clásico diseño estilo Telecaster.</p>
+                    <a href="producto.html?nombre=Fender Telecaster&precio=$1.250.000&desc=Clásico diseño estilo Telecaster, ideal para country y rock.&img=https://musicopolix.com/274654/fender-american-vintage-ii-1963-telecaster-rw-surf-green-guitarra-electrica.jpg" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+                <div class="guitarra-card">
+                    <img src="https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=850/https://www.fmicassets.com/Damroot/eCommPNG/10104/0114980300_fen_ins_frt_1_rr.png" alt="Fender Jazzmaster">
+                    <h3>Fender Jazzmaster</h3>
+                    <p class="precio">$1.300.000</p>
+                    <p class="descripcion">Clásico diseño estilo Jazzmaster.</p>
+                    <a href="producto.html?nombre=Fender Jazzmaster&precio=$1.300.000&desc=Diseño Jazzmaster con un sonido único y versátil.&img=https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=850/https://www.fmicassets.com/Damroot/eCommPNG/10104/0114980300_fen_ins_frt_1_rr.png" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN GIBSON -->
+        <section class="seccion-marca">
+            <h2 class="titulo-marca">Gibson</h2>
+            <div class="guitarra-grid">
+                <div class="guitarra-card">
+                    <img src="https://files.soniccdn.com/images/products/original/342/gibson-les-paul-standard-75342.jpg" alt="Gibson LP">
+                    <h3>Gibson Les Paul</h3>
+                    <p class="precio">$1.500.000</p>
+                    <p class="descripcion">Clásico diseño estilo Les Paul.</p>
+                    <a href="producto.html?nombre=Gibson Les Paul&precio=$1.500.000&desc=El estándar del rock. Sustain infinito y tono cálido.&img=https://files.soniccdn.com/images/products/original/342/gibson-les-paul-standard-75342.jpg" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+                <div class="guitarra-card">
+                    <img src="https://www.cutawayguitarmagazine.com/wp-content/uploads/2014/08/SG14HCRC1-Glam-Shot.jpg" alt="Gibson SG">
+                    <h3>Gibson SG</h3>
+                    <p class="precio">$1.450.000</p>
+                    <p class="descripcion">Clásico diseño estilo SG.</p>
+                    <a href="producto.html?nombre=Gibson SG&precio=$1.450.000&desc=Diseño icónico de doble corte para un acceso total a los trastes.&img=https://www.cutawayguitarmagazine.com/wp-content/uploads/2014/08/SG14HCRC1-Glam-Shot.jpg" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+                <div class="guitarra-card">
+                    <img src="https://retrogearshop.com/cdn/shop/files/1.-Gibson-Explorer-1978-Top-8183.jpg?v=1707513711&width=1024" alt="Gibson Explorer">
+                    <h3>Gibson Explorer</h3>
+                    <p class="precio">$1.000.000</p>
+                    <p class="descripcion">Clásico diseño estilo Explorer.</p>
+                    <a href="producto.html?nombre=Gibson Explorer&precio=$1.000.000&desc=Potencia y estilo agresivo para el escenario.&img=https://retrogearshop.com/cdn/shop/files/1.-Gibson-Explorer-1978-Top-8183.jpg?v=1707513711&width=1024" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN IBANEZ -->
+        <section class="seccion-marca">
+            <h2 class="titulo-marca">Ibanez</h2>
+            <div class="guitarra-grid">
+                <div class="guitarra-card">
+                    <img src="https://ultramaraudio.com/wp-content/uploads/2025/12/p_region_RG550_EB_00_04_sub_1.jpg" alt="Ibanez RG">
+                    <h3>Ibanez RG</h3>
+                    <p class="precio">$900.000</p>
+                    <p class="descripcion">Diseño moderno estilo RG.</p>
+                    <a href="producto.html?nombre=Ibanez RG&precio=$900.000&desc=La guitarra definitiva para el shredding y la velocidad.&img=https://ultramaraudio.com/wp-content/uploads/2025/12/p_region_RG550_EB_00_04_sub_1.jpg" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+                <div class="guitarra-card">
+                    <img src="https://theguitarworld.com/cdn/shop/products/p_region_SEW761FM_NTF_1P_01_sub_1_2000x.jpg?v=1613505667" alt="Ibanez S">
+                    <h3>Ibanez S</h3>
+                    <p class="precio">$850.000</p>
+                    <p class="descripcion">Diseño moderno estilo S.</p>
+                    <a href="producto.html?nombre=Ibanez S&precio=$850.000&desc=Cuerpo ultradelgado y ligero con un sonido masivo.&img=https://theguitarworld.com/cdn/shop/products/p_region_SEW761FM_NTF_1P_01_sub_1_2000x.jpg?v=1613505667" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+                <div class="guitarra-card">
+                    <img src="https://www.stars-music.com/medias/ibanez/as93qmsp-dbs-artcore-expressionist-2h-ht-eb-hd-3-220118.jpg" alt="Ibanez Artcore">
+                    <h3>Ibanez Artcore</h3>
+                    <p class="precio">$800.000</p>
+                    <p class="descripcion">Diseño moderno estilo Artcore.</p>
+                    <a href="producto.html?nombre=Ibanez Artcore&precio=$800.000&desc=Cuerpo semihueco para tonos cálidos de jazz y blues.&img=https://www.stars-music.com/medias/ibanez/as93qmsp-dbs-artcore-expressionist-2h-ht-eb-hd-3-220118.jpg" class="btn-link">
+                        <button class="btn">Comprar</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>Somos una tienda apasionada por la música, dedicada a ofrecer las mejores guitarras para músicos de todos los niveles. Calidad y sonido garantizado.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Get in Touch</h3>
+                <p><strong>Dirección:</strong> Av. Principal 123, Ciudad de la Música</p>
+                <p><strong>Teléfono:</strong> +54 11 1234-5678</p>
+                <p><strong>Email:</strong> contacto@musicly.com</p>
+            </div>
+
+            <div class="footer-col">
+                <div class="logo-footer">🎸 Tienda de Guitarras</div>
+            </div>
+        </div>
+    </footer>
+<script>
+        function actualizarContador() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            document.getElementById('cart-count').innerText = carrito.length;
+        }
+        actualizarContador();
+    </script>
+</body>
+</html>
+</body>
 </html>
